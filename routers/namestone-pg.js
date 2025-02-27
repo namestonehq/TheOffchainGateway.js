@@ -18,7 +18,6 @@ export default {
       context &&
       context.sender === "0x2291053F49Cd008306b92f84a61c6a1bC9B5CB65"
     ) {
-      console.log("nfty context", context);
       context.protocol = "ens";
       context.signingKey = nftySigningKey;
     }
