@@ -124,6 +124,7 @@ const http = createServer(async (req, reply) => {
         let { data, history } = await ezccip.handleRead(sender, calldata, {
           signingKey,
           resolver,
+          origin: resolver,
           router,
           routers,
           ip,
