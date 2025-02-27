@@ -16,7 +16,8 @@ export default {
   async resolve(name, context) {
     if (
       context &&
-      context.sender === "0x2291053F49Cd008306b92f84a61c6a1bC9B5CB65"
+      (context.sender === "0x2291053F49Cd008306b92f84a61c6a1bC9B5CB65" ||
+        context.sender === "0xF142B308cF687d4358410a4cB885513b30A42025")
     ) {
       context.protocol = "ens";
       context.signingKey = nftySigningKey;
