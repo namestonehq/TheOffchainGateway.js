@@ -2,16 +2,25 @@ import { Record } from "@resolverworks/enson";
 import { log, safe_name } from "../src/utils.js";
 import { SmartCache } from "../src/SmartCache.js";
 import postgres from "postgres";
-
+import { ethers } from "ethers";
 const sql = postgres(process.env.NAMESTONE_PG);
 // why doesn't this library expose connect/disconnect events?
+
+const nftySigningKey = new ethers.SigningKey(process.env.NFTY_SIGNING_KEY);
 
 const domain_cache = new SmartCache();
 const record_cache = new SmartCache();
 
 export default {
   //slug: 'namestone',
-  async resolve(name) {
+  async resolve(name, context) {
+    if (
+      context &&
+      context.sender === "0x2291053F49Cd008306b92f84a61c6a1bC9B5CB65"
+    ) {
+      context.protocol = "ens";
+      context.signingKey = nftySigningKey;
+    }
     const MIN = 2; // currently every domain is "a.b"
     let labels = name.split(".");
     if (labels.length < MIN) return;
