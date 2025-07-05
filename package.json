@@ -5,6 +5,8 @@
 		"@adraffy/ens-normalize": "^1.10.1",
 		"@ensdomains/address-encoder": "^1.0.0",
 		"@namestone/ezccip": "^0.1.0",
+		"@noble/curves": "^1.9.2",
+		"@noble/hashes": "^1.8.0",
 		"@resolverworks/enson": "^0.0.11",
 		"ethers": "^6.11.1",
 		"postgres": "^3.4.3"
